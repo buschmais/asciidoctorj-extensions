@@ -79,5 +79,5 @@ For more information refer to https://github.com/buschmais/jqassistant/issues/12
 
 == Feedback
 
-Please report any issues https://github.com/buschmais/asciidoctorj-extensions[here].
+Please report any issues https://github.com/buschmais/asciidoctorj-extensions/issues[here].
 
