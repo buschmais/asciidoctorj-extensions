@@ -1,0 +1,76 @@
+= AsciidoctorJ Extensions
+
+This project provides extensions to http://asciidoctor.org/docs/asciidoctorj/[Asciidoctorj].
+
+== Setup
+
+The extensions can be enabled by adding a dependency to the https://github.com/asciidoctor/asciidoctor-maven-plugin[Asciidoctor Maven plugin]:
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctor-maven-plugin</artifactId>
+    <version>${asciidoctor.version}</version>
+    <executions>
+        <execution>
+            <phase>process-resources</phase>
+            <goals>
+                <goal>process-asciidoc</goal>
+            </goals>
+        </execution>
+    </executions>
+    <confiuration>
+        <attributes>
+            <!-- extension specific attributes -->
+        </attributes>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>com.buschmais.asciidoctorj</groupId>
+            <artifactId>extensions</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</plugin>
+----
+
+== URL Inline Macro Processor
+
+Provides a `url` macro which adds links according to configured URL mappings.
+Each mapping consists of a regular expression to match and a replacement pattern to use as URL, e.g.:
+
+[source,xml]
+----
+<plugin>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctor-maven-plugin</artifactId>
+    ...
+    <configuration>
+        <attributes>
+            <url-mappings>
+                jQAssistant-(\d*) = https://github.com/buschmais/jqassistant/issues/$1,
+                XO-(\d*) = https://github.com/buschmais/extended-objects/issues/$1
+            </url-mappings>
+        </attributes>
+    <configuration>
+</plugin>
+----
+
+When processing a document the snippet
+
+[source,asciidoc]
+----
+For more information refer to url:jQAssistant-123[].
+----
+
+will be rendered to:
+
+[sidebar]
+--
+For more information refer to https://github.com/buschmais/jqassistant/issues/123[jQAssistant-123].
+--
+
+== Issues
+
+Issues can be reported https://github.com/buschmais/asciidoctorj-extensions[here].
