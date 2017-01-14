@@ -1,6 +1,6 @@
 = AsciidoctorJ Extensions
 
-This project provides extensions to http://asciidoctor.org/docs/asciidoctorj/[Asciidoctorj].
+This project provides extensions for http://asciidoctor.org/docs/asciidoctorj/[Asciidoctorj].
 
 == Setup
 
@@ -57,20 +57,20 @@ Each mapping consists of a regular expression to match and a replacement pattern
 </plugin>
 ----
 
-When processing a document the snippet
+Now the snippet
 
 [source,asciidoc]
 ----
 For more information refer to url:jQAssistant-123[].
 ----
 
-will be rendered to:
+will be backed up by a link:
 
 [sidebar]
 --
 For more information refer to https://github.com/buschmais/jqassistant/issues/123[jQAssistant-123].
 --
 
-== Issues
+== Feedback
 
-Issues can be reported https://github.com/buschmais/asciidoctorj-extensions[here].
+Please report any issues https://github.com/buschmais/asciidoctorj-extensions[here].
