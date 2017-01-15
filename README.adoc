@@ -1,10 +1,10 @@
 = AsciidoctorJ Extensions
 
-This project provides extensions for http://asciidoctor.org/docs/asciidoctorj/[Asciidoctorj].
+This project provides extensions for http://asciidoctor.org/docs/asciidoctorj/[AsciidoctorJ].
 
 == Setup
 
-The extensions can be enabled by adding a dependency to the https://github.com/asciidoctor/asciidoctor-maven-plugin[Asciidoctor Maven plugin]:
+The extensions are available from Maven Central repository and can be enabled by adding a dependency to the https://github.com/asciidoctor/asciidoctor-maven-plugin[Asciidoctor Maven plugin]:
 
 [source,xml]
 ----
@@ -29,7 +29,7 @@ The extensions can be enabled by adding a dependency to the https://github.com/a
         <dependency>
             <groupId>com.buschmais.asciidoctorj</groupId>
             <artifactId>extensions</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </plugin>
@@ -37,10 +37,37 @@ The extensions can be enabled by adding a dependency to the https://github.com/a
 
 == URL Inline Macro Processor
 
-Provides a `url` macro which adds links according to configured URL mappings.
-Each mapping consists of a regular expression to match and a replacement pattern to use as URL, e.g.:
+Provides a macro `url` which adds links according to defined URL mappings.
+Each mapping consists of a regular expression to match and a replacement pattern to generate a URL.
+
+.Mappings
+----
+jQAssistant-(\d*) = https://github.com/buschmais/jqassistant/issues/$1,
+XO-(\d*) = https://github.com/buschmais/extended-objects/issues/$1
+----
+
+jQAssistant-(\d*)::
+  The regular expression containing group `(\d*)` which will be used in the replacement pattern as `$1`
+\https://github.com/buschmais/jqassistant/issues/$1::
+  Defines the link to create and which refers to group `$1`
+
+Using these mappings the Asciidoc snippet
+
+[source,asciidoc]
+----
+For more information refer to url:jQAssistant-123[].
+----
+
+will be rendered as a link:
+
+****
+For more information refer to https://github.com/buschmais/jqassistant/issues/123[jQAssistant-123].
+****
+
+The mappings must be defined as document attribute `url-mapping`, e.g. in case of Maven:
 
 [source,xml]
+.pom.xml
 ----
 <plugin>
     <groupId>org.asciidoctor</groupId>
@@ -58,24 +85,11 @@ Each mapping consists of a regular expression to match and a replacement pattern
         <dependency>
             <groupId>com.buschmais.asciidoctorj</groupId>
             <artifactId>extensions</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 </plugin>
 ----
-
-The snippet
-
-[source,asciidoc]
-----
-For more information refer to url:jQAssistant-123[].
-----
-
-will now be rendered as a link:
-
-****
-For more information refer to https://github.com/buschmais/jqassistant/issues/123[jQAssistant-123].
-****
 
 == Feedback
 
