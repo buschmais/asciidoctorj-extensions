@@ -64,14 +64,14 @@ Each mapping consists of a regular expression to match and a replacement pattern
 </plugin>
 ----
 
-Now the snippet
+The snippet
 
 [source,asciidoc]
 ----
 For more information refer to url:jQAssistant-123[].
 ----
 
-will be rendered as a link:
+will now be rendered as a link:
 
 ****
 For more information refer to https://github.com/buschmais/jqassistant/issues/123[jQAssistant-123].
