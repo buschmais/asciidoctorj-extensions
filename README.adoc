@@ -64,7 +64,7 @@ will be rendered as a link:
 For more information refer to https://github.com/buschmais/jqassistant/issues/123[jQAssistant-123].
 ****
 
-The mappings must be defined as document attribute `url-mapping`, e.g. in case of Maven:
+The mappings must be defined as document attribute `url-mappings`, e.g. in case of Maven:
 
 [source,xml]
 .pom.xml
