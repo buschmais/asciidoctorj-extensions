@@ -38,4 +38,5 @@ public class UrlInlineMacroProcessorTest {
         assertThat("Expecting a link for 'url:XO-456[]'.", html,
                 containsString("<a href=\"https://github.com/buschmais/extended-objects/issues/456\">XO-456</a>"));
     }
+
 }
