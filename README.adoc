@@ -91,7 +91,7 @@ The mappings must be defined as document attribute `url-mappings`, e.g. in case 
 </plugin>
 ----
 
-NOTE: The URLs should be encoded, e.g. `=` must be represented by `%3D`.
+NOTE: The URLs must be encoded, e.g. `=` must be represented by `%3D`.
 
 It is possible to define an alternative name for the macro:
 
@@ -110,8 +110,8 @@ It is possible to define an alternative name for the macro:
         </attributes>
         <extensions>
             <extension>
-                <className>com.buschmais.asciidoctorj.extensions.UrlInlineMacroProcessor</className>
-                <blockName>issue</blockName> <!-- <1> -->
+                <className>com.buschmais.asciidoctorj.extensions.UrlInlineMacroProcessor</className> <!-- <1> -->
+                <blockName>issue</blockName>                                                         <!-- <2> -->
             </extension>
         </extensions>
     <configuration>
@@ -125,7 +125,8 @@ It is possible to define an alternative name for the macro:
 </plugin>
 ----
 
-<1> Defines the name `issue`.
+<1> Declares the extension explicitly.
+<2> Defines the name `issue`.
 
 [source,asciidoc]
 ----
